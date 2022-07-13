@@ -6,7 +6,7 @@ import { onMounted, reactive, ref, watch } from 'vue';
 import axios from 'axios';
 import {chart} from '../utils/mainGraph.js'
 
-chart();
+
 
 var props = defineProps({
     clientes:Object,
