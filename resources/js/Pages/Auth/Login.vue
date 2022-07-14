@@ -29,12 +29,13 @@ const submit = () => {
 };
 </script>
 
-<template>
+
+<template >
     <Head title="Log in" />
 
     <JetAuthenticationCard>
         <template #logo>
-            <JetAuthenticationCardLogo />
+            <JetAuthenticationCardLogo  />
         </template>
 
         <JetValidationErrors class="mb-4" />

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Models\Ceco;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,10 +35,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        $clientes = Cliente::all();
-        return Inertia::render('Dashboard',[
-            'clientes' => $clientes
-        ]);
+        return Inertia::render('Dashboard');
     })->name('dashboard');  
 });
 

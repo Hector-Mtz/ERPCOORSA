@@ -9,25 +9,14 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
         <!-- Scripts -->
         @routes
         @vite('resources/js/app.js')
         @inertiaHead
 
-        <!-- Amcharts -->
-          <!-- Styles -->
-           <style>
-               #chartdiv {
-                 width: 100%;
-                 height: 500px;
-               }
-            </style>
-    
-            <!-- Resources -->
-            <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-            <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-            <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-            <script type="text/javascript" src="{{ asset('assets/js/mainGraph.js')}}"></script>
     </head>
     <body class="font-sans antialiased">
         @inertia

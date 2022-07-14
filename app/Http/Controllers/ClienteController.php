@@ -20,8 +20,9 @@ class ClienteController extends Controller
         $clientes = Cliente::all();
         $cecos = Ceco::all();
 
-        return Inertia::render('Dashboard',[
-            'clientes' => $clientes
+        return Inertia::render('Main',[
+            'clientes' => $clientes,
+            'cecos' => $cecos
         ]);
     }
 
