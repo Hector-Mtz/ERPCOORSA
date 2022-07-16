@@ -22,6 +22,8 @@
     },
     "dependencies": {
         "@amcharts/amcharts5": "^5.2.10",
+        "prop-types": "^15.8.1",
+        "react": "^18.2.0",
         "react-datepicker": "^4.8.0",
         "vue-sidebar-menu": "^5.2.4"
     }

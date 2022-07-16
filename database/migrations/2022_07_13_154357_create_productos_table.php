@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->integer('cantidad');
             $table->foreignId('soli_gastos_id')->constrained('soli_gastos');
             $table->timestamps();
         });

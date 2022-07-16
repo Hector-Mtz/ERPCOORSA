@@ -175,7 +175,7 @@ const logout = () => {
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <JetDropdownLink as="button">
-                                                Log Out
+                                                Salir
                                             </JetDropdownLink>
                                         </form>
                                     </template>

@@ -8,15 +8,23 @@ export default {
   
 props: {
    clientes:Object,
-   cecos:Object
+   grupo_conceptos:Object
   },
 
 name: 'Graph',
 
 mounted() {
 
-    console.log('Mounted!');
+    let vm=this;
+        
+    console.log(vm.clientes); //comprobamos si imprime todos los los clientes
+ 
+    let clients = vm.clientes; //guardamos en una varibale los cliente spara iterarlos
 
+    let grupo_conceptos = vm.grupo_conceptos;
+
+    console.log(grupo_conceptos);
+    
     let root = am5.Root.new(this.$refs.chartdiv);
 
     root.setThemes([am5themes_Animated.new(root)]);
@@ -30,6 +38,7 @@ mounted() {
          layout: root.verticalLayout
       })
     );
+
 
  // Create axes and their renderers
 var yRenderer = am5xy.AxisRendererY.new(root, {
@@ -50,15 +59,17 @@ var yAxis = chart.yAxes.push(
 var xRenderer = am5xy.AxisRendererX.new(root, {
   visible: false,
   minGridDistance: 30,
-  inversed: true
+  inversed: false,
+  opposite:true
 });
 
-xRenderer.grid.template.set("visible", false);
+xRenderer.grid.template.set("visible", false, );
 
 var xAxis = chart.xAxes.push(
   am5xy.CategoryAxis.new(root, {
     renderer: xRenderer,
-    categoryField: "category"
+    categoryField: "category",
+
   })
 );
 
@@ -74,7 +85,8 @@ var series = chart.series.push(
     yAxis: yAxis,
     categoryXField: "x",
     categoryYField: "y",
-    valueField: "value"
+    valueField: "value",
+  
   })
 );
 
@@ -88,7 +100,8 @@ series.columns.template.setAll({
   cornerRadiusBR: 5,
   width: am5.percent(100),
   height: am5.percent(100),
-  templateField: "columnSettings"
+  templateField: "columnSettings",
+  
 });
 
 var circleTemplate = am5.Template.new({});
@@ -127,227 +140,73 @@ var colors = {
 // Set data
 // https://www.amcharts.com/docs/v5/charts/xy-chart/#Setting_data
 var data = [
-  {
 
-    y: "Critical",
-    x: "Very good",
-    columnSettings: {
-      fill: colors.medium
-    },
-    value: 20
-  },
-  {
-    y: "Bad",
-    x: "Very good",
+   {
+    y: "UNILEVER",
+    x: "1000",
     columnSettings: {
       fill: colors.good
     },
-    value: 15
+    value: 50
   },
   {
-    y: "Medium",
-    x: "Very good",
-    columnSettings: {
-      fill: colors.verygood
-    },
-    value: 25
-  },
-  {
-    y: "Good",
-    x: "Very good",
-    columnSettings: {
-      fill: colors.verygood
-    },
-    value: 15
-  },
-  {
-    y: "Very good",
-    x: "Very good",
-    columnSettings: {
-      fill: colors.verygood
-    },
-    value: 12
-  },
-  {
-    y: "Critical",
-    x: "Good",
-    columnSettings: {
-      fill: colors.bad
-    },
-    value: 30
-  },
-  {
-    y: "Bad",
-    x: "Good",
-    columnSettings: {
-      fill: colors.medium
-    },
-    value: 24
-  },
-  {
-    y: "Medium",
-    x: "Good",
+    y: "WALMART",
+    x: "1000",
     columnSettings: {
       fill: colors.good
     },
-    value: 25
+    value: 50
   },
   {
-    y: "Good",
-    x: "Good",
-    columnSettings: {
-      fill: colors.verygood
-    },
-    value: 15
-  },
-  {
-    y: "Very good",
-    x: "Good",
-    columnSettings: {
-      fill: colors.verygood
-    },
-    value: 25
-  },
-  {
-    y: "Critical",
-    x: "Medium",
-    columnSettings: {
-      fill: colors.bad
-    },
-    value: 33
-  },
-  {
-    y: "Bad",
-    x: "Medium",
-    columnSettings: {
-      fill: colors.bad
-    },
-    value: 14
-  },
-  {
-    y: "Medium",
-    x: "Medium",
-    columnSettings: {
-      fill: colors.medium
-    },
-    value: 20
-  },
-  {
-    y: "Good",
-    x: "Medium",
+    y: "PURINA",
+    x: "1000",
     columnSettings: {
       fill: colors.good
     },
-    value: 19
+    value: 50
   },
   {
-    y: "Very good",
-    x: "Medium",
+    y: "COLGATE",
+    x: "1000",
     columnSettings: {
       fill: colors.good
     },
-    value: 25
+    value: 50
   },
-  {
-    y: "Critical",
-    x: "Bad",
-    columnSettings: {
-      fill: colors.critical
-    },
-    value: 31
-  },
-  {
-    y: "Bad",
-    x: "Bad",
-    columnSettings: {
-      fill: colors.critical
-    },
-    value: 24
-  },
-  {
-    y: "Medium",
-    x: "Bad",
-    columnSettings: {
-      fill: colors.bad
-    },
-    value: 25
-  },
-  {
-    y: "Good",
-    x: "Bad",
-    columnSettings: {
-      fill: colors.medium
-    },
-    value: 15
-  },
-  {
-    y: "Very good",
-    x: "Bad",
-    columnSettings: {
-      fill: colors.good
-    },
-    value: 15
-  },
-  {
-    y: "Critical",
-    x: "Critical",
-    columnSettings: {
-      fill: colors.critical
-    },
-    value: 12
-  },
-  {
-    y: "Bad",
-    x: "Critical",
-    columnSettings: {
-      fill: colors.critical
-    },
-    value: 14
-  },
-  {
-    y: "Medium",
-    x: "Critical",
-    columnSettings: {
-      fill: colors.critical
-    },
-    value: 15
-  },
-  {
-    y: "Good",
-    x: "Critical",
-    columnSettings: {
-      fill: colors.bad
-    },
-    value: 25
-  },
-  {
-    y: "Very good",
-    x: "Critical",
-    columnSettings: {
-      fill: colors.medium
-    },
-    value: 19
-  }
+
 ];
 
 series.data.setAll(data);
 
+//Siteamos los datos que aparecen en el eje y
+let ejey = []
 
-yAxis.data.setAll([
-  { category: "Critical" },
-  { category: "Bad" },
-  { category: "Medium" },
-  { category: "Good" },
-  { category: "Very good" }
-]);
+for (let index = 0; index < clients.length; index++) {
+    const element = clients[index];
 
-xAxis.data.setAll([
-  { category: "Critical" },
-  { category: "Bad" },
-  { category: "Medium" },
-  { category: "Good" },
-  { category: "Very good" }
-]);
+    console.log(element.nombre);
+    ejey.push({category: element.nombre});
+
+}
+
+yAxis.data.setAll(ejey);
+
+//Siteamos los datos que aparecen en el eje x
+let ejex = [];
+for (let i = 0; i < grupo_conceptos.length; i++) {
+    const e = grupo_conceptos[i];
+    console.log(e.nombre);
+    ejex.push({category: e.nombre});
+}
+
+xAxis.data.setAll(ejex);
+
+var legend = chart.children.push(am5.Legend.new(root, {
+  centerX: am5.p50,
+  x: am5.p50
+}));
+
+legend.data.setAll(chart.series.values);
 
 // Make stuff animate on load
 // https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
@@ -369,8 +228,6 @@ chart.appear(1000, 100);
 
 
 <template>
-  <div class="graph" ref="chartdiv">
-  </div>
+  <div class="graph" ref="chartdiv">  </div>
 
-  <pre>{{clientes}}</pre>
 </template>
