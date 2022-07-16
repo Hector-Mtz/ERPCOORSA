@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Ceco;
 use App\Models\Cliente;
+use App\Models\GrupoConcepto;
+use App\Models\Producto;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -18,11 +21,18 @@ class ClienteController extends Controller
     {
         //
         $clientes = Cliente::all();
-        $cecos = Ceco::all();
+        $grupo_conceptos = GrupoConcepto::all();
+
+        $cantidades = DB::table(DB::raw('productos'))
+                      ->select(DB::raw(
+                        'SUM(productos.cantidad) AS Cantidad'
+                      ))
+                      ->join('');
 
         return Inertia::render('Main',[
             'clientes' => $clientes,
-            'cecos' => $cecos
+            'grupo_conceptos' => $grupo_conceptos,
+            'cantidades' => $cantidades
         ]);
     }
 
